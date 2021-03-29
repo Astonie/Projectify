@@ -1,10 +1,9 @@
 <template>
   
-   <div>
-      <v-toolbar>
-      <v-toolbar-side-icon  class="grey--text" > <v-btn depressed @click="drawer = !drawer">icon</v-btn> 
-      </v-toolbar-side-icon>
-      <v-toolbar-title class="text-uppercase grey--text" > 
+   <nav>
+    <v-toolbar>
+      <v-app-bar-nav-icon class="grey--text"  @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title class="text-uppercase grey--text"  > 
           <span class="font-weight-light">Todo</span>
           <span>Ninja</span>
          
@@ -17,10 +16,35 @@
 
     </v-toolbar>
 
-    <v-navigation-drawer app class="success" v-model="drawer" >
-          <p>Test</p>
+    <v-navigation-drawer app  v-model="drawer" >
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="title grey--text text-uppercase">
+            TodoNinja
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list dense nav>
+       <v-list-item-group dark >
+        <v-list-item v-for="link in links" :key="link.title"
+                                      router :to="link.route">
+          <!-- <v-list-item-icon>
+            <v-icon>{{ link.icon }}</v-icon>
+          </v-list-item-icon> --> 
+      
+          <v-list-item-title>
+           {{ link.title }}
+          </v-list-item-title>
+      
+        </v-list-item>
+        </v-list-item-group>
+      </v-list>
     </v-navigation-drawer>
-   </div>
+  
+   </nav>
  
 </template>
 
@@ -31,7 +55,12 @@
   data(){
 
       return {
-        drawer:false
+        drawer:false,
+        links: [
+          {icon:'dashboard', text:'Dashboard',route:'/' },
+          {icon:'projects', text:'Projects',route:'/projects' },
+          {icon:'team', text:'Team',route:'/team' },
+        ]
       }
     
 

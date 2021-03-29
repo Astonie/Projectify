@@ -2,7 +2,9 @@ import Vue from 'vue';
 import Vuetify from 'vuetify/lib/framework';
 
 Vue.use(Vuetify, {
-    iconfont:'md',
+    icons: {
+        iconfont: 'mdi', //'mdiSvg', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+      },
 });
 
 export default new Vuetify({});
