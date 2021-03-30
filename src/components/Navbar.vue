@@ -1,7 +1,6 @@
 <template>
-  
    <nav>
-    <v-toolbar>
+    <v-toolbar height="52px" >
       <v-app-bar-nav-icon class="grey--text"  @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase grey--text"  > 
           <span class="font-weight-light">Todo</span>
@@ -17,8 +16,8 @@
     </v-toolbar>
 
     <v-navigation-drawer app  v-model="drawer" >
-      <v-list-item>
-        <v-list-item-content>
+      <v-list-item  >
+        <v-list-item-content height="60px">
           <v-list-item-title class="title grey--text text-uppercase">
             TodoNinja
           </v-list-item-title>
