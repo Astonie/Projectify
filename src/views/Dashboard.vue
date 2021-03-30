@@ -4,13 +4,52 @@
     <v-container class="my-5" >
 
       <v-layout row  class="mb-3" > 
-        <v-tooltip top>
-           <template #activator="{ }"> <v-btn text grey class="mx-1" 
-           @click="sortBy('title')" slot="activator " > by project</v-btn> </template>
-          <span> Sort projects by project name </span>
-        </v-tooltip>
+
+    <v-tooltip top>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn text grey class=" mx-1" 
+           @click="sortBy('title')" > by project
+        <v-icon
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+          right
+       
+        >
+          mdi-folder
+        </v-icon>
+        </v-btn> 
+      
+      </template>
+      <span> Sort projects by project name </span>
+
+    </v-tooltip>
+
+
+     <v-tooltip top>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn text grey class=" mx-1" 
+           @click="sortBy('person')" > by person
+        <v-icon
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+          right
+       
+        >
+          mdi-account
+        </v-icon>
+        </v-btn> 
+      
+      </template>
+      <span> Sort projects by person </span>
+
+    </v-tooltip>
+       
         
-         <v-btn text class="mx-1" grey @click="sortBy('person')" > by person </v-btn>
+        <!-- <v-btn text class="mx-1" grey @click="sortBy('person')" > by person </v-btn> -->
       </v-layout>
 
         <v-card class="pa-3" flat v-for="project in projects" :key="project.title"  >
@@ -31,8 +70,8 @@
             </v-flex>
 
             <v-flex xs2 sm4 md2 > 
-              <div class="right">
-                <v-chip small :class="` ${project.status} white--text caption my-2 `" >
+              <div class="right" id="chips-container" >
+                <v-chip  small  :class="`${project.status}`" >
                   {{project.status}}
                 </v-chip>
               </div>
@@ -97,13 +136,15 @@ export default {
     }
 
 
-    .v-chip.complete{
-      color: #3cd12c ;
-      /* background:#3cd12c; */
-    }
-    .v-chip.ongoing {
-      background: #ffaa2c;
-    }
+ #chips-container .v-chip.complete {
+  background: #3cd1c2;
+}
+#chips-container .v-chip.ongoing {
+  background: #ffaa2c;
+}
+#chips-container .v-chip.overdue {
+  background: #f83e70;
+}
     
 
 </style>
