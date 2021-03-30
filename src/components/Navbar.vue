@@ -16,6 +16,11 @@
     </v-toolbar>
 
     <v-navigation-drawer app  v-model="drawer" >
+      <v-layout column class="center" >
+        <v-avatar class="ma-4"  align-center size="100" >
+          <img src="/avatar-1.jpg" alt="">
+        </v-avatar>
+      </v-layout>
       <v-list-item  >
         <v-list-item-content height="60px">
           <v-list-item-title class="title grey--text text-uppercase">
