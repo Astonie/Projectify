@@ -1,5 +1,6 @@
 <template>
    <nav>
+     
     <v-toolbar height="52px" >
       <v-app-bar-nav-icon class="grey--text"  @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase grey--text"  > 
@@ -77,12 +78,13 @@
   export default {
     name: 'Navbar',
     components:{
-      Popup
+      Popup,
     },
 
   data(){
 
       return {
+        alert:true,
         drawer:false,
         links: [
           {icon:'mdi-view-dashboard', text:'Dashboard',route:'/' },
